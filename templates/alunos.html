@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block page_content %}
+{{ wtf.quick_form(form) }}
+
+<h2>Relação de alunos cadastrados</h2>
+
+{% if alunos %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome do aluno</th>
+                <th>Disciplina</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+            <tr>
+                <td>{{ aluno.username }}</td>
+                <td>
+                    {% if aluno.disciplina %}
+                        {{ aluno.disciplina.name }}
+                    {% else %}
+                        <span class="text-muted">Sem disciplina</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Nenhum aluno cadastrado ainda.</p>
+{% endif %}
+{% endblock %}

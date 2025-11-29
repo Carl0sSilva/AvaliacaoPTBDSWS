@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Avaliação semestral</h1>
+    <h3>Aluno: Carlos Custódio</h3>
+    <h3>Prontuário: PT3032043</h3>
+</div>
+
+<footer>
+    Data e hora local é {{ moment(current_time).format('MMMM D, YYYY h:mm A') }}
+</footer>
+{% endblock %}
